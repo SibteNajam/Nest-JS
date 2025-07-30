@@ -9,8 +9,6 @@ export class ProductService {
         { id: 2, name: 'Product B', price: 200 },
         { id: 3, name: 'Product C', price: 300 }
     ];
-
-    @UseGuards(AuthGuard)
     getAllProducts() {
         return this.products;
     }
