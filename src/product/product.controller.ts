@@ -1,12 +1,15 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { ProductService } from './product.service';
+import { AuthGuard } from 'src/guards/auth/auth.guard';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-//is there any issue in code at line 14 
-
+@ApiTags('Products')
 @Controller('product')
+@ApiBearerAuth('access-token') // Use the same name as in main.ts
 export class ProductController {
     constructor(private readonly productService: ProductService) { }
 
+    @UseGuards(AuthGuard)
     @Get()
     getProducts() {
         return this.productService.getAllProducts();

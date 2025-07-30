@@ -11,14 +11,15 @@ async function bootstrap() {
       forbidNonWhitelisted: true, // Throw an error if non-whitelisted properties(unknown fileds that ar nnot define din dto) are found
 
     }));
-
-
   // Create Swagger configuration
-  const config = new DocumentBuilder()
-    .setTitle('Your API Title')
-    .setDescription('Your API description')
-    .setVersion('1.0')
-    .addTag('Your API Tag') // Optional: Add tags for grouping endpoints
+  const config = new DocumentBuilder().setTitle('Your API Title').setDescription('Your API description').setVersion('1.0').addTag('Your API Tag').addBearerAuth( // ✅ This adds the "Authorize" button in Swagger
+    {
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT', // optional: just for UI
+    },
+    'access-token', // this name can be used in @ApiBearerAuth('access-token')
+  )
     .build();
 
   // Create the Swagger document
