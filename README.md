@@ -20,7 +20,20 @@ authorization:
 
             Guards --> avoid duplicate checks in each controleruse same guard at multiple places
 
+filters for exception handling
 
-        
 
+Middleware
+
+logging incoming request , authentication (chck JWT) Request tranform , redirect if not login , setting headers etc
+
+                    Middleware(node express)    
+                    execut ebeofre controller
+                    do common task token decode,  logging (write node express code inside this middleware function not nenst)
+                        
+                           vs
+            
+                    Guard(Nest feature) not in node or express
+                    guard exxecute before routeis accesed 
+                    role based ,authorization
 
