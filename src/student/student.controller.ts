@@ -22,6 +22,8 @@ export class StudentController {
     @ApiOperation({ summary: 'Create a new student' })
 
     create(@Body() data: { name: string, age: number }) {
+        console.log('Received body:', data); // <--- add this
+
         return this.studentService.createStudent(data);
     }
     @Put(':id')
