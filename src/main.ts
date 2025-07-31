@@ -28,5 +28,6 @@ async function bootstrap() {
   // Set up Swagger UI at a specific path
   SwaggerModule.setup('api', app, document);
   await app.listen(process.env.PORT ?? 3000);
+  app.enableShutdownHooks(); // Enable shutdown hooks for graceful shutdown
 }
 bootstrap();

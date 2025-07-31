@@ -37,3 +37,13 @@ logging incoming request , authentication (chck JWT) Request tranform , redirect
                     guard exxecute before routeis accesed 
                     role based ,authorization
 
+
+
+lifecycle ---> hooks -----> special methods by nest js
+    autocalls when service starts or close
+    stages of events
+    e.g application starts  --> connect with DB, resource cleanup at application close 
+    so write all the code in lifecycle methods
+
+    onmoduleinit onmoduledestory,  aftermoduleinit,  onapplicationbootstrap,  onapplicationshutdown
+
